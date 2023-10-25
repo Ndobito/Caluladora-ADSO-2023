@@ -1,5 +1,8 @@
 <?php 
 
+require_once "view/notify.php";
+include_once 'lib/notify/helper.php';
+
 $controller = "index";
 
 if(!isset($_REQUEST['x'])){
@@ -14,7 +17,7 @@ if(!isset($_REQUEST['x'])){
     require_once "controller/$controller.controller.php";
     $controller = 'Controller_'.ucwords($controller);
     $controller = new $controller();
-    call_user_func_array(array($controller, $action), $param);
+    call_user_func_array(array($controller, $action), array($param));
 }
 
 ?>
